@@ -150,6 +150,7 @@ used `openssl s_client -connect localhost:30001`, entered the current password a
 find out which port out of a reang has a server listening on them. Then find out which of those speak SSL/TLS and which dont. then submit the current passowrd to to receve the pass for the next level. 
 **Solution:**
 I used `namp -sV ` to search the port range for for ports that speak ssl. then used `openssl s_client -connect localhost` to connect to the and enter the. as before i used vim to save the key and chmod to change its permissions.
+
 ![alt text](image-1.png)
 
 **What I learned:**
