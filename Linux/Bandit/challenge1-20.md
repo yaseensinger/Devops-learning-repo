@@ -166,15 +166,29 @@ used `diff` to find the lines
 **What I learned:** 
 diff is cool 
 
+
 ## level 18 > 19
 **Challenge:**
 read the file in the home directory before i am logged out 
+
 **Solution:**
 used the ssh command to add the comand `"cat readme"` 
 
 **What I learned:** 
 
 you can specify a command after i have specied the destination when using a ssh. !
-[alt text](image-2.png)
 
 
+## level 19 > 20
+
+
+
+**Challenge:**
+Use the SUID binary to access the password for the next level, even though the password file cannot be read directly by the current user.
+
+**Solution:**
+I first listed the files in the home directory with `ls -l` and noticed that `bandit20-do` had the SUID bit set (`-rwsr-x---`). This means the program runs with the permissions of its owner (`bandit20`) instead of my current user (`bandit19`). I then used the binary to execute `cat` on `/etc/bandit_pass/bandit20`, which displayed the password for the next level.
+
+
+**What I learned:**
+SUID (Set User ID) allows an executable to run with the permissions of its owner rather than the user running it. This can be used to perform actions that the current user would not normally have permission to do, such as reading protected files.
