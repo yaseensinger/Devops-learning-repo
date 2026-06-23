@@ -1,0 +1,88 @@
+DNS - Domain name server 
+helps keep track of websites by name rather then ip  
+
+
+
+name servers - load dns serrings and configs and respond to queries 
+    authoritatice- hold the actual dns records of ip addresses   
+    recursive- do not hold the records but queries other servers  
+
+
+zone files- stored in the name server savers  
+
+        - contain information about the domain  
+        - help name server answer  
+        - organised dns in readable way  
+
+ records 
+
+zone files are comprised of multiple resource records that has specific info about hosts name servers and other resources 
+
+
+
+types  
+
+    a ipv4   
+    aaaa ipv6 
+    cname multiple domain names to the same ip addresses 
+    mx - mail server  
+    txt - verification for domain owners  
+
+ 
+
+DNS hierarchy and  distribution 
+ 
+
+dns root  
+    keeps info of tlds 
+
+tld  
+    holds top level domains like .com .co.uk  
+
+authoritative domains  
+    like google.com x.com youtube.com 
+
+domain 
+    has zone files and zones holds the records for that domain  
+
+  
+
+DNS process  
+    user typers googel.com - browser > dns resolver  > root server (tells to look up the  .com server) > resolver > tld server (tells it to go to the name server )> authoritative server > authoritative sever (returns the ip )> 
+
+ 
+
+domain register 
+
+ - allows you to purchase and register domains  
+ - has a relation ship with TLD registries   
+ - go daddy, cloudflare      
+
+
+
+dns hosing provider  
+
+- operates DNS nameserver that host dns zones  
+- you need the zone to be hosted on a dns  
+
+ 
+
+ 
+
+dns query process  
+
+ 
+
+1) local cache is checked /etc  
+2) dns resolver checks cache > asks root for .com tld  
+3) root responds with the address of the .com registry name server  
+4) resolver queries the registry name server > responds with the google.com name server  
+5) resolver queries the google.com DNS NS 
+6) google name server responds with the DNS records 
+7) resolver caches the result  
+
+ 
+
+ 
+
+ 
