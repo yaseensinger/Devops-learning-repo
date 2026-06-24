@@ -34,9 +34,10 @@ DNS hierarchy and  distribution
  
 
 dns root  
-    keeps info of tlds 
 
+    keeps info of tlds 
 tld  
+
     holds top level domains like .com .co.uk  
 
 authoritative domains  
