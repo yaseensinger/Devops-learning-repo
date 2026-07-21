@@ -1,0 +1,38 @@
+EC2 elastic compte cloud = infrstrucire as a sercice 
+
+renting a servixcs or vm 
+most populare  scalu up and down 
+
+elastic bbob storage ebs
+elb - traffic is shared easyly disruoubte requests 
+asg allwos you to scale servisces add and remove servicsa as needed 
+
+
+ec2 sizing and config 
+
+os -  depending on app 
+compute power - depends on what the app needs how many cores 
+memory - more memor for handleling nore data 
+storage - netowork arrached storage ebs and efs / harwear ec2 intance stoeger 
+netowrk - car speed and public ip 
+firewalls : security gtoups and traffic 
+bootstrap script : runda automatically to install soft updtats and taks whent the app starts 
+
+
+user data 
+make sure updates are correct 
+install softwear 
+runs once when it is started 
+runs with root !!
+time saver 
+
+ec2 instance types 
+
+general purpose - 
+compute optomised - extrea cpu bnathc processing 
+memory opermised - data processing 
+stopreage opermised - fast quick acess 
+accelerated computing - 
+hpc opermised 
+
+purchasing options
