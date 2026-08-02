@@ -1,42 +1,93 @@
+# AWS Security Groups
 
+## What are Security Groups?
 
-control how traffinc flwos in and out of ec2 instances 
+A **Security Group (SG)** is a **virtual firewall** for your EC2 instances.
 
-only allow rules anying isnt allwod is blocked 
+- Controls how **traffic flows into and out of EC2 instances**.
+- Operates **one layer above the EC2 instance**.
+- Controls **which ports are open**.
+- Controls **which IP addresses or Security Groups** are allowed to communicate with an instance.
+- Attached to **EC2 instances**, not subnets.
 
-if in bouns ins allwded the outbound is auto allowed also 
+---
 
-acts like a firewall 
+# Key Features
 
-controlls waht ports are open 
+- **Only Allow rules** are supported.
+- Anything that is **not explicitly allowed is automatically blocked**.
+- **Stateful firewall**:
+  - If inbound traffic is allowed, the response is automatically allowed outbound.
+  - If outbound traffic is allowed, the response is automatically allowed inbound.
+- Acts as a virtual firewall protecting EC2 instances.
 
-autho ip ranges 
+---
 
-sgs contoll what is allowed in 
+# Inbound and Outbound Traffic
 
+## Inbound Rules
 
-http - port 80 
-ssh  port 22 - spource 
+Control traffic coming **into** the EC2 instance.
 
+Examples:
+- HTTP (Port 80)
+- SSH (Port 22)
 
+By default:
+- **All inbound traffic is blocked** until you create Allow rules.
 
-can be attached to multiple instances lcked to a reagon and a vpc
+---
 
-one layer above the instance 
-good practivce to ahavea sg for ssg so that you can check it when you cant coonect 
+## Outbound Rules
 
-all inbod is bloced by default 
+Control traffic leaving the EC2 instance.
 
-refrenceing other sgs
+By default:
+- Most Security Groups allow **all outbound traffic**.
 
-you can auth other sgs to talk to ther instances 
-simple because it uses sg as a reference rahter then ips  
+---
 
+# Security Group Scope
 
-ports top know 
-22- ssh
-21 -sftp 
-80- http
-443- https
-53- dns
-3389= rdp
+- A Security Group can be attached to **multiple EC2 instances**.
+- Security Groups are **regional**.
+- They exist within a single **VPC (Virtual Private Cloud)**.
+
+---
+
+# Referencing Other Security Groups
+
+Instead of allowing traffic from specific IP addresses, you can **reference another Security Group**.
+
+Benefits:
+- Allows instances in one Security Group to communicate with instances in another.
+- Easier to manage than using IP addresses.
+- Rules automatically apply to new instances added to the referenced Security Group.
+
+Example:
+- Allow web servers (SG-Web) to communicate with application servers (SG-App).
+- Allow application servers (SG-App) to communicate with database servers (SG-DB).
+
+---
+
+# Good Practice
+
+Create a **separate Security Group for SSH access**.
+
+Benefits:
+- Easier to troubleshoot connection issues.
+- Better security by restricting SSH access.
+- Can be reused across multiple EC2 instances.
+
+---
+
+# Common Ports to Know
+
+| Port | Service | Purpose |
+|------|---------|---------|
+| 22 | SSH | Secure remote login to Linux instances |
+| 21 | SFTP/FTP* | File transfer (*FTP uses Port 21; SFTP typically uses SSH on Port 22) |
+| 80 | HTTP | Unsecured web traffic |
+| 443 | HTTPS | Secure web traffic |
+| 53 | DNS | Domain Name System |
+| 3389 | RDP | Remote Desktop for Windows instances |
