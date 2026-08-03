@@ -1,0 +1,15 @@
+elastic ip 
+
+when you reatart a i stance it gets a diffent public ip 
+if you need a fixed ip then you want tinyse a elasic 
+you own it
+charges when they are not in use needs to be attched 
+usefull when external serveces need to point to a server 
+
+can mask the failure of a instance to another instance by remapping the ip to switch traffic 
+5 per account 
+avoid them unless nessasary 
+sign if poor archetecture 
+random public ip and register a dns
+load balance 
+good for quicj recovery 
