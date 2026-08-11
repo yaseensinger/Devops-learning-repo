@@ -1,78 +1,194 @@
-load balancingf - away to distubute taffice across diffrnet server 
+# Load Balancing
 
-elb isits between users and iunstances when traffic omes in forwatrds the requerst downstream checks what instances are healthy and directs traffic accordingly 
-keeps apps respincive and avlalable 
-when goes down elb stops sending traffic there and redirects (semeless to users)
-reverse proxys
+Load balancing is a way to distribute traffic across different servers.
 
+# ELB
 
-why use - 
--primary job is to spread the load across instances 
--single point of acceess dns 
-- seemlessly handel failuers and 
-- regualr health checks 
-- can hamdel  ssl and https encription 
-- sticky session users are sent back to the same instance for their request 
-- high avalablity across zones 
-- seperate priavte and public traffic 
+**Elastic Load Balancer (ELB)** sits between users and instances.
 
+When traffic comes in, the ELB forwards requests to healthy targets.
 
-why use elb
-- is a mannaged load balancer (means aws takes care of it )
-    -aws guarentee 
-    - aws manages updates and maintance 
-    - less config 
-- diy load balancer 
-    - lost m ore more handeling mainatnace, monitoring scaling, 
-- elb already interngration 
-    - works with auto scaling goups , amazxon ecs 
-    - aws cirtificate mananger, cloud watch
-    -  
+* Keeps applications responsive and available.
+* Performs health checks on targets.
+* If a target becomes unhealthy, the ELB stops sending traffic to it.
+* Traffic is redirected to healthy targets.
+* Acts as a reverse proxy.
+* Provides a single point of access through DNS.
 
-health checks 
-enable a load balancers to know if an instance that it is forwarding traffic to is healthey 
-- does this by sending a request ot a port and root 
-eg /health if it does n ot respond with 200 it is undeathly 
-- this ia automatic 
-- 
+## Why Use a Load Balancer?
 
-aws load balancer 
+* Distributes load across instances.
+* Handles failures automatically.
+* Performs regular health checks.
+* Can handle SSL/HTTPS encryption.
+* Supports sticky sessions.
+* Provides high availability across Availability Zones.
+* Can separate public and private traffic.
 
-clb - classic load balancer 
-- support basic http https tcb 
-- old gen 
+## Why Use an ELB?
 
-ALB - application load balancer
-- operates on layer 7 - 
-- smart enough to understand what is going on in the reuest ist self like headers cookies urls 
--  load balance traffic  on multiple http applicaiton across multiple machines or within target group. can also balance tgraffic across multiple applicaiton runnin on the same machine (like containers )
-htttp/2 support and websockets 
+ELB is a **managed load balancer**, meaning AWS manages the underlying infrastructure.
 
-- routing traffic to diffrent target groups can be instances lamda functions or containers 
-- routing based on path url( eg : yaseen.com/users)
-- host based routing (eg blog.yaseen.com )
-- query baeed routing (yaseen.com/users?id=425&order=false)
-- good for micro services and contarenbes apps 
-- port maping for ecs 
-- if clb was used it woud need a load balancer per app 
+### AWS Managed ELB
 
+* AWS handles maintenance and updates.
+* Less configuration and management.
+* Integrates with other AWS services.
 
-tager groups- groups of resources that a alb routs traffic too
-each targer group is tied to a servece or app allowing you to scale diffrent parts independently 
-ec2 instances can be manged by an auto scaling group
-alb also spports routing traffic to lamda functions 
-private ip adresses - must be private 
-alb allows you to rout traffic to multiple target groups eg one for user requests
+### DIY Load Balancer
 
+Requires more work for:
 
+* Maintenance.
+* Monitoring.
+* Scaling.
+* Management.
 
-NLB 
+### ELB Integrations
 
-GWLb
+* Auto Scaling Groups.
+* Amazon ECS.
+* AWS Certificate Manager.
+* Amazon CloudWatch.
 
-load balancers secruiry grouips 
+# Health Checks
 
-allow users to connect to laod balancers from anywher from the interntet 
-allwos traffic  over port 80 port 443 https source is 0,00,00 
+Health checks allow a load balancer to determine whether a target is healthy.
 
-then you have the sg for the security group where you restric access so that only the load balancer can talk to the ec2 instance 
+* The load balancer sends a request to a specific port and path.
+* Example: `/health`
+* If the target does not respond as expected, it is considered unhealthy.
+* Unhealthy targets stop receiving traffic.
+* Health checks are automatic.
+
+# AWS Load Balancers
+
+## CLB — Classic Load Balancer
+
+* Older generation load balancer.
+* Supports basic HTTP, HTTPS, and TCP.
+* Generally replaced by ALB and NLB for new applications.
+
+## ALB — Application Load Balancer
+
+* Operates at **Layer 7**.
+* Understands HTTP/HTTPS requests.
+* Can inspect things such as:
+
+  * Headers.
+  * Cookies.
+  * URLs.
+* Supports HTTP/2 and WebSockets.
+
+### ALB Routing
+
+ALB can route traffic to different target groups.
+
+Targets can include:
+
+* EC2 instances.
+* Lambda functions.
+* Containers.
+
+Routing can be based on:
+
+* **Path:** `/users`
+* **Host:** `blog.yaseen.com`
+* **Query string:** `/users?id=425&order=false`
+
+ALB is useful for:
+
+* Microservices.
+* Container-based applications.
+* ECS applications.
+* Applications requiring advanced HTTP routing.
+
+### ALB Hostname
+
+* Each ALB has a DNS hostname.
+* Clients use this hostname to access the load balancer.
+* For a custom domain, Route 53 can point the domain to the ALB.
+
+### Client IP Address
+
+The load balancer receives the client's connection.
+
+The original client IP can be passed to the application using the:
+
+* `X-Forwarded-For` header.
+
+Other headers include:
+
+* `X-Forwarded-Port`
+* `X-Forwarded-Proto`
+
+The application can read these headers when it needs the information.
+
+# Target Groups
+
+Target groups are groups of resources that an ALB routes traffic to.
+
+* Each target group can represent a service or application.
+* Different parts of an application can scale independently.
+* EC2 instances can be managed by an Auto Scaling Group.
+* ALB can route traffic to Lambda functions.
+* An ALB can route traffic to multiple target groups.
+* Targets using IP addresses must use private IP addresses.
+
+# NLB — Network Load Balancer
+
+* Operates at **Layer 4**.
+* Supports TCP and UDP.
+* Optimised for very high performance and low latency.
+* Can handle very high numbers of connections and requests.
+* Has a static IP per Availability Zone.
+* Supports Elastic IP addresses.
+* Useful for applications requiring high-performance TCP/UDP traffic.
+* Commonly used where low latency is important.
+
+### NLB Use Cases
+
+* Gaming.
+* Financial services.
+* High-performance network applications.
+* Applications requiring TCP or UDP.
+
+### How NLB Works
+
+NLB works at Layer 4.
+
+* Routes TCP and UDP traffic to targets.
+* Uses rules that you define.
+* Does not inspect HTTP-level details like an ALB.
+* Focuses on efficiently routing network traffic.
+
+# Sticky Sessions
+
+Sticky sessions ensure that a client is routed to the same instance.
+
+* Uses a cookie to keep track of the instance.
+* You can set how long the session lasts using an expiration time.
+* Useful when an application stores session data locally on an instance.
+* Helps prevent users from losing session information such as carts or login sessions.
+* Can create an imbalance because some instances may receive more users than others.
+
+# GWLB — Gateway Load Balancer
+
+# Load Balancer Security Groups
+
+Security groups control who can communicate with the load balancer and the targets.
+
+### Load Balancer Security Group
+
+Allows users to connect to the load balancer.
+
+For a public load balancer:
+
+* Port `80` → HTTP.
+* Port `443` → HTTPS.
+* Source can be `0.0.0.0/0` when public internet access is required.
+
+### EC2 Security Group
+
+The EC2 security group can restrict access so that EC2 instances only accept traffic from the load balancer.
+
