@@ -192,3 +192,27 @@ For a public load balancer:
 
 The EC2 security group can restrict access so that EC2 instances only accept traffic from the load balancer.
 
+# SSL and TLS
+
+## SSL
+
+**SSL (Secure Sockets Layer)** is used to secure traffic between clients and servers.
+
+* Encrypts data while it is **in transit (in-flight)**.
+* Protects traffic from being read while travelling between the client and server.
+* SSL is now outdated and has been replaced by TLS.
+
+## TLS
+
+**TLS (Transport Layer Security)** is the modern version of SSL.
+
+* TLS provides encryption for data in transit.
+* People often say **SSL** when they actually mean **TLS**.
+
+## Certificates
+
+TLS certificates are issued by **Certificate Authorities (CAs)**.
+
+* CAs are trusted third parties that verify the identity of websites.
+* Certificates have an expiration date.
+* Certificates need to be renewed before they expire.
