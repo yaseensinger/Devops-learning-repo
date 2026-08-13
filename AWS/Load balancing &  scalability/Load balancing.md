@@ -245,10 +245,67 @@ application load balancer
   - server diffrfent 
 
 
-connection draining 
-lets an instance finishrequests before it is removed, updated, or shut down.
-called deregistraion delay for alb and nlb 
-stops new requests to the instance but allows inflight recquest to finish 
-can set a value to controll how long it takes
+# Connection Draining
 
-auto scaling groups 
+* Lets an instance finish requests before it is removed, updated, or shut down.
+* Called **deregistration delay** for ALB and NLB.
+* Stops new requests to the instance but allows in-flight requests to finish.
+* Can set a value to control how long it takes.
+
+# Auto Scaling Groups
+
+Goal is to adjust the number of EC2 instances depending on load.
+
+* **Scale in:** Remove an instance.
+* **Scale out:** Add instances.
+* Ensures we have a minimum number of instances and maximum.
+* Automatically registers new instances with the LB.
+* ASG can recreate EC2 instances when they are unhealthy.
+
+Operates on:
+
+* Minimum target.
+* Desired target.
+* Maximum target.
+
+# Auto Scaling with a Load Balancer
+
+* ALB will distribute the traffic to the instances.
+* ALB also checks the health and routes traffic accordingly.
+* ASG will scale as needed.
+* AMIs are used by the ASG when more instances are needed.
+
+# Launch Templates
+
+* AMI + instance types.
+* EC2 user data — include scripts when needed.
+* EBS.
+* Security groups.
+* Key pair.
+* IAM roles for the EC2.
+* Network + subnets.
+* Load balancer info.
+* Minimum / maximum sizes.
+* Scaling policies.
+
+# CloudWatch Alarms and Scaling
+
+* Alarms keep an eye on metrics, e.g. CPU, memory.
+* When alarms are triggered, AWS will take action.
+* When under heavy load, an alarm goes off and AWS will increase instances.
+* CloudWatch alarms are basically the checker that tells AWS to scale.
+
+# Scaling Policies
+
+### Target Tracking Scaling
+
+* Maintain average load.
+
+### Simple Step Scaling
+
+* When a CloudWatch alarm is triggered, scale accordingly.
+* More granular.
+
+### Scheduled Scaling
+
+* Instances can be scheduled for predictable needs.
