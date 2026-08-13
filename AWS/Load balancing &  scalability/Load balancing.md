@@ -216,3 +216,39 @@ TLS certificates are issued by **Certificate Authorities (CAs)**.
 * CAs are trusted third parties that verify the identity of websites.
 * Certificates have an expiration date.
 * Certificates need to be renewed before they expire.
+
+how load balancers handel certificates 
+load balancer is the middle man between users and ex2 instances 
+uses x.509 
+aws certificate manager acm creating renewing and managing (can uplaod your ow)
+https listner ensuress traffic is encrypted 
+ - specifiy certificate 
+ - sni servername indication 
+ - le
+user connectcs via https 
+load balancer handels this connection 
+forwards trhe request using http (privcate traffic )
+
+SNI -server name indiaction 
+
+allows multiple ssl cirts to be loaded on the same web server  
+sends the host name of websites as part of the ssl handhake server uses this info to find the right cirt 
+if no mathc uses the defualt cirt 
+
+
+Elastic load balancers - ssl 
+
+classic load balancers 
+  - only use one ssl per
+  - you will need more 
+application load balancer 
+  - server diffrfent 
+
+
+connection draining 
+lets an instance finishrequests before it is removed, updated, or shut down.
+called deregistraion delay for alb and nlb 
+stops new requests to the instance but allows inflight recquest to finish 
+can set a value to controll how long it takes
+
+auto scaling groups 
