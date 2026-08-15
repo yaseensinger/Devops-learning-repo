@@ -29,4 +29,19 @@ aws handels running and manages the containers
 tell it how resoruses it needs and it runs based on it 
 scal but incresing tasks 
 aws handewls adding more contrianers 
-better for teams that want to avoid running infra and focis on the containers  
+better for teams that want to avoid running infra and focis on the containers 
+
+
+IMA for ecs 
+
+ecs inatance profile  ec2 lainge type only 
+    - the agent needs permissions to interact with other aws services so it used ec2 profile 
+    - the agents uses a api calls to the cluster
+task role 
+    - allows each task to have a specific role 
+    - uses diffrent roles for each instance 
+    - oly gives the container access to what it needs 
+    - defined in the task defention 
+
+ECS lload balancer intergrtation 
+
