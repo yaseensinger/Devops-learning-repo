@@ -1,47 +1,112 @@
-ECS  
-amaosns own containter aucotratin paltform 
-full ymanaged service that lets you run services
+# ECS
 
-eks
-amazon managed kubernetes 
-can take advanctages of k8 features handels and amaozon manages wihitout hacing to controle plane yourself 
+Amazon ECS (Elastic Container Service) is AWS's own container orchestration platform.
 
-aws fargate 
-Servaless cpntainer platpfor that works ecs and eks
-removes the need to manafe ec2 instances 
-define that ask and it manages the infa 
+It is a fully managed service that lets you run and manage containerized applications.
 
-ecr 
-docker hub for amazon 
-sore and manage doacker images 
-intergrated with amazon serverces 
+# EKS
 
+Amazon EKS (Elastic Kubernetes Service) is Amazon's managed Kubernetes service.
 
-ECS 
-ecs agent middle man between the isntance and cluster 
-launch types 
-ec2 launch type- you are responsable for manageing the instances - must run ecs agent registes the ec2 instrance in the cluster making it avlable to ren the containesr - handels the container life cycle 
+You can take advantage of Kubernetes features while AWS manages the Kubernetes control plane, so you don't have to manage it yourself.
 
-fargtate launch type (serverless)
+AWS takes care of the heavy lifting for the Kubernetes control plane.
 
-dotn worry abnout runing any insncae
-aws handels running and manages the containers
-tell it how resoruses it needs and it runs based on it 
-scal but incresing tasks 
-aws handewls adding more contrianers 
-better for teams that want to avoid running infra and focis on the containers 
+It supports automated deployment, scaling and management of containerized applications through Kubernetes.
 
+## Node types
 
-IMA for ecs 
+### Managed Node Groups
 
-ecs inatance profile  ec2 lainge type only 
-    - the agent needs permissions to interact with other aws services so it used ec2 profile 
-    - the agents uses a api calls to the cluster
-task role 
-    - allows each task to have a specific role 
-    - uses diffrent roles for each instance 
-    - oly gives the container access to what it needs 
-    - defined in the task defention 
+* AWS creates and manages the EC2 instances.
+* The nodes are part of an Auto Scaling Group.
+* AWS manages much of the node lifecycle.
 
-ECS lload balancer intergrtation 
+### Self-Managed Nodes
 
+* You create and manage the EC2 instances yourself.
+* The instances are registered as worker nodes in the EKS cluster.
+* The nodes are usually managed using an Auto Scaling Group.
+* You are responsible for managing the instances and their lifecycle.
+
+# AWS Fargate
+
+Fargate is a serverless container platform that works with both ECS and EKS.
+
+It removes the need to manage EC2 instances.
+
+You define the task/pod and specify the resources it needs, and AWS manages the underlying infrastructure.
+
+You can scale by increasing the number of tasks/pods.
+
+AWS handles the underlying compute infrastructure.
+
+It is useful for teams that want to avoid managing servers and focus on running containers.
+
+# ECR
+
+Amazon ECR (Elastic Container Registry) is like Docker Hub for AWS.
+
+It allows you to store and manage Docker/container images.
+
+It integrates with other AWS services such as ECS and EKS.
+
+Permissions are managed using IAM.
+
+# ECS
+
+The ECS agent is the middleman between the EC2 instance and the ECS cluster.
+
+## Launch Types
+
+### EC2 Launch Type
+
+* You are responsible for managing the EC2 instances.
+* The ECS agent must run on the EC2 instance.
+* The ECS agent registers the EC2 instance with the ECS cluster, making it available to run containers.
+* The ECS agent communicates with ECS and handles the container lifecycle.
+* You are responsible for managing the underlying EC2 infrastructure.
+
+### Fargate Launch Type
+
+Fargate is the serverless option.
+
+* You don't need to manage EC2 instances.
+* AWS handles the underlying infrastructure.
+* You tell AWS how many resources the task needs, such as CPU and memory.
+* AWS runs the containers based on the resources you specify.
+* You can scale by increasing the number of tasks.
+* AWS handles the underlying compute infrastructure.
+* Good for teams that want to avoid managing infrastructure and focus on containers.
+
+# IAM for ECS
+
+## ECS Instance Profile
+
+**EC2 launch type only**
+
+* The ECS agent needs permissions to interact with AWS services.
+* The EC2 instance uses an IAM instance profile.
+* The IAM role attached to the instance gives the ECS agent the permissions it needs to communicate with AWS services.
+
+## Task Role
+
+* Allows each ECS task to have its own IAM role.
+* Different tasks can use different IAM roles.
+* Only gives the container/application the permissions it needs.
+* Helps follow the principle of least privilege.
+* The task role is defined in the ECS task definition.
+
+# ECS Load Balancer Integration
+
+ECS can integrate with Elastic Load Balancing.
+
+An Application Load Balancer (ALB) can distribute traffic across ECS tasks.
+
+The ECS service can register running tasks with a target group.
+
+When new tasks are started, they can be registered with the target group so the load balancer can send traffic to them.
+
+When tasks are stopped, they are removed from the target group.
+
+This works well with ECS service scaling because new tasks can automatically receive traffic from the load balancer.
