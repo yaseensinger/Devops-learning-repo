@@ -1,7 +1,10 @@
 AWS Networking
 
 VPC
-
+back bone of eveetyhing 
+default vpc 
+comes with internte connectivity each instance will receve a punlic ipv4 address 
+each intrance will recveve a public and private ipv4 dns name
 CIDR
 
 Classless Inter-Domain Routing (CIDR) — a method for allocating and representing IP address ranges.
