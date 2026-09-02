@@ -11,5 +11,13 @@ usefull for enviremnets that are moving to ipv6 but still need ipv4 .
 
 unlikely will ever run out of ipv 6 addresses so if there is ever a issue it wil be ipv4 and you can create a sider to get more ips  
 
-engress only gateway - only used for ip6 traffic 
+engress only gateway - 
+
+only used for ip6 traffic 
 outbound tradffic only instances canb use this to access internete but not allow intetnet to access instances 
+routtables need to be updated
+
+Ip routing 
+
+in a vpc a private instance will use a nat gatewat to allow intentet access for ipv4 
+where when using ipv6 it can can use the intetnte gateway directly 
