@@ -1,13 +1,24 @@
-AWS Networking
+## bAWS Networking
 
-VPC
-back bone of eveetyhing 
-default vpc 
-comes with internte connectivity each instance will receve a punlic ipv4 address 
-each intrance will recveve a public and private ipv4 dns name
-CIDR
+# VPC (Virtual Private Cloud) 
 
-Classless Inter-Domain Routing (CIDR) — a method for allocating and representing IP address ranges.
+is the backbone of AWS networking. It provides the network environment where AWS resources such as EC2 instances run.
+
+Default VPC
+AWS provides a Default VPC in each AWS Region.
+
+Key characteristics:
+
+Comes with Internet connectivity.
+EC2 instances launched in the default VPC can receive a public IPv4 address.
+Each instance receives:
+A private IPv4 address
+A private DNS name
+A public IPv4 address (when enabled)
+A public DNS name (when a public IPv4 address is assigned) 
+
+## Classless Inter-Domain Routing (CIDR) 
+— a method for allocating and representing IP address ranges.
 
 Helps us define IP ranges.
 
@@ -29,7 +40,7 @@ The smaller the CIDR prefix length, the larger the range of IPs.
 The /24 is the CIDR prefix length.
 The corresponding subnet mask is 255.255.255.0.
 
-VPC - Subnet
+## VPC - Subnet
 
 * AWS reserves 5 IPv4 addresses in each subnet; they are not available for use.
 * .0 — network address
@@ -40,7 +51,7 @@ VPC - Subnet
 
 Note: AWS reserves the broadcast address, but VPCs do not support broadcast traffic.
 
-Internet Gateway
+## Internet Gateway
 
 * An Internet Gateway allows resources in a VPC to communicate with the public internet.
 * Scales horizontally.
@@ -48,19 +59,19 @@ Internet Gateway
 * Route tables need to be configured to direct traffic in and out of a network.
 * For internet access, a route such as 0.0.0.0/0 → Internet Gateway is typically added to the route table.
 
-Public resources
+## Public resources
 
 An Internet Gateway and a route table do not automatically make a resource public.
 
 For an EC2 instance to have direct internet connectivity, it generally also needs a public IPv4 address and appropriate security rules.
 
-Bastion Host
+## Bastion Host
 
 * A bridge to a private instance.
 * The bastion host is placed in a public subnet and can be accessed from a trusted external IP.
 * It can then be used to SSH into an instance in a private subnet.
 
-Security Groups
+## Security Groups
 
 * The bastion host security group needs to allow inbound SSH traffic from a trusted/restricted IP.
 * The private EC2 security group needs to allow inbound SSH traffic from the bastion host’s security group.
