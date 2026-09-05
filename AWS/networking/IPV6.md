@@ -16,4 +16,4 @@
 # IP Routing
 
 * In a VPC, a private instance will use a NAT Gateway to allow internet access for IPv4.
-* Whereas when using IPv6, it can use the Internet Gateway directly.
+* Whereas when using IPv6, it can use the Egress-only  Internet Gateway directly.
