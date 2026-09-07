@@ -1,4 +1,5 @@
-dasdas
+load balance 
+
 
 
 instances
@@ -14,3 +15,15 @@ same az
 
 ALB
 ![alt text](image-2.png)
+
+
+
+
+VPC 
+
+
+vpc with /16 cider 
+![alt text](image-4.png)
+
+
+subnets ![alt text](image-5.png)
