@@ -23,5 +23,4 @@
 * A provider is a plugin that allows you to connect to a cloud provider.
 
 ## Terraform Init
-
-* `terraform init` — command to set up the workspace.
+git rraform init` — command to set up the workspace.
