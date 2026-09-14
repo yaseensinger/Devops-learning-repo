@@ -1,17 +1,27 @@
-terrafrom allows you to deply code onj any clouud 
+# Terraform
 
-can hbe stored on git tto allow ,lmember of a team to colaborate 
+* Terraform allows you to deploy code on any cloud.
+* Code can be stored on Git to allow members of a team to collaborate.
 
-*state file
-like a blueprint . record of the exisitng inferstructiote 
+## State File
 
-iidenpotency - no matter how many time you run the config it will produce the same the same result. when one change is made it will only apply the one change 
+* Like a blueprint: a record of the existing infrastructure.
 
-Desired vs current state 
-current state is the state file 
+## Idempotency
 
-desired state  - you config changes or new deploymetns 
+* No matter how many times you run the configuration, it will produce the same result.
+* When one change is made, it will only apply that one change.
 
-the state file decideds be compareing the desited state to the current changes and only makes thoes changes
+## Desired vs Current State
 
-provider - a provider is a plugin that allwos you to connct to a cloud povider
+* **Current state:** The state file.
+* **Desired state:** Your configuration changes or new deployments.
+* The state file decides, by comparing the desired state to the current state, and only makes those changes.
+
+## Provider
+
+* A provider is a plugin that allows you to connect to a cloud provider.
+
+## Terraform Init
+
+* `terraform init` — command to set up the workspace.
