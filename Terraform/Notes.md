@@ -43,3 +43,16 @@ will generate the same plan and plan command and ask you to confirm appying the 
 A way to destroy all repmote objects managed by terrafrom 
 reads confing and state file to see what it is managing and delets them after you confirm 
 updates the state file after 
+
+## resource block 
+used to deinfe a peice of inferstrucnt that you want to manage like a ec2
+
+Resourse "aws_instance" "Test"{
+    ami= "ami-012349s21ed"
+    instance_type = "t2.micro"
+Tags = {
+Name = "Helloworld"
+}
+}
+
+## Terrafrom regirsty 
