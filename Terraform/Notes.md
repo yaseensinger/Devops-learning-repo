@@ -24,3 +24,15 @@
 
 ## Terraform Init
 git rraform init` — command to set up the workspace.
+
+
+## Terraform Plan 
+previre the canges that terrafrom will make before it mkaes them 
+analaysise config files and compates it state files and generates a plan 
+output represents  desired state 
+plasn has 
++: create 
+~: update 
+-: destroy
+
+## Terrafrom apply 
