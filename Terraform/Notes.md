@@ -36,3 +36,10 @@ plasn has
 -: destroy
 
 ## Terrafrom apply 
+this command takes the exectution plan and applys it to the inferstruictiue
+will generate the same plan and plan command and ask you to confirm appying the changes 
+
+## Terrafrom destroy 
+A way to destroy all repmote objects managed by terrafrom 
+reads confing and state file to see what it is managing and delets them after you confirm 
+updates the state file after 
