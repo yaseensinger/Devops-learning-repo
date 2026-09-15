@@ -25,34 +25,64 @@
 ## Terraform Init
 git rraform init` — command to set up the workspace.
 
+## Terraform Plan
 
-## Terraform Plan 
-previre the canges that terrafrom will make before it mkaes them 
-analaysise config files and compates it state files and generates a plan 
-output represents  desired state 
-plasn has 
-+: create 
-~: update 
--: destroy
+`terraform plan` previews the changes that Terraform will make before applying them.
 
-## Terrafrom apply 
-this command takes the exectution plan and applys it to the inferstruictiue
-will generate the same plan and plan command and ask you to confirm appying the changes 
+It analyzes the configuration files, compares them with the current state, and generates an execution plan.
 
-## Terrafrom destroy 
-A way to destroy all repmote objects managed by terrafrom 
-reads confing and state file to see what it is managing and delets them after you confirm 
-updates the state file after 
+The output represents the **desired state** and shows what Terraform intends to change.
 
-## resource block 
-used to deinfe a peice of inferstrucnt that you want to manage like a ec2
+### Plan Symbols
 
-Resourse "aws_instance" "Test"{
-    ami= "ami-012349s21ed"
-    instance_type = "t2.micro"
-Tags = {
-Name = "Helloworld"
+* `+` — Create
+* `~` — Update
+* `-` — Destroy
+
+---
+
+## Terraform Apply
+
+`terraform apply` takes the execution plan and applies it to the infrastructure.
+
+It will generate the same plan as the `terraform plan` command and ask you to confirm before applying the changes.
+
+---
+
+## Terraform Destroy
+
+`terraform destroy` is used to destroy all remote objects managed by Terraform.
+
+It reads the configuration and state files to determine which resources Terraform is managing. After you confirm, Terraform deletes those resources and updates the state file.
+
+---
+
+## Resource Block
+
+A **resource block** is used to define a piece of infrastructure that you want Terraform to manage, such as an EC2 instance.
+
+### Example
+
+```hcl
+resource "aws_instance" "test" {
+  ami           = "ami-012349s21ed"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "HelloWorld"
+  }
 }
-}
+```
 
-## Terrafrom regirsty 
+In this example:
+
+* `aws_instance` is the **resource type**.
+* `test` is the **resource name**.
+* `ami` specifies the Amazon Machine Image (AMI) to use.
+* `instance_type` specifies the type of EC2 instance.
+* `tags` adds metadata to the EC2 instance.
+
+---
+
+## Terraform Registry
+
