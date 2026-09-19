@@ -91,3 +91,5 @@ In this example:
 # importing 
 
 allows you to take exising resorces uncer terrafrom control 
+import block 
+you can use the instance id to import 
