@@ -86,3 +86,8 @@ In this example:
 
 ## Terraform Registry
 
+![alt text](image.png)
+
+# importing 
+
+allows you to take exising resorces uncer terrafrom control 
