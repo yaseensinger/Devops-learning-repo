@@ -93,3 +93,17 @@ In this example:
 allows you to take exising resorces uncer terrafrom control 
 import block 
 you can use the instance id to import 
+
+# local and remote state files 
+
+local -  terrafromm sores your state file locally on your machain.  
+easy to setup - no congig 
+good for single uer projects 
+
+Remote - SOTORES fule in a central secure locatiojn that allwos a collabrateive approach 
+
+multiple team memebers can access 
+
+automatic locking previeint users from macking ahcnges at the same time 
+
+automatic backups encryptted 
