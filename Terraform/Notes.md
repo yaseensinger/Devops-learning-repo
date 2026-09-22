@@ -94,16 +94,23 @@ allows you to take exising resorces uncer terrafrom control
 import block 
 you can use the instance id to import 
 
-# local and remote state files 
+# Local and Remote State Files
 
-local -  terrafromm sores your state file locally on your machain.  
-easy to setup - no congig 
-good for single uer projects 
+## Local State
 
-Remote - SOTORES fule in a central secure locatiojn that allwos a collabrateive approach 
+Terraform stores the state file locally on your machine.
 
-multiple team memebers can access 
+- Easy to set up
+- No additional configuration required
+- Good for single-user projects
+- State file is stored on the local machine
 
-automatic locking previeint users from macking ahcnges at the same time 
+## Remote State
 
-automatic backups encryptted 
+Terraform stores the state file in a central, secure location, allowing teams to collaborate.
+
+- Multiple team members can access the state
+- Automatic state locking prevents users from making changes at the same time
+- Automatic backups
+- Encryption for improved security
+- Better suited for collaborative and production environments
