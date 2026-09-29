@@ -114,3 +114,9 @@ Terraform stores the state file in a central, secure location, allowing teams to
 - Automatic backups
 - Encryption for improved security
 - Better suited for collaborative and production environments
+
+## variables 
+instead of hardcodeing names in your code 
+allows code to be more re usable and dry 
+seperate vailabel.tf file 
+input varaiables 
