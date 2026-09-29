@@ -119,4 +119,4 @@ Terraform stores the state file in a central, secure location, allowing teams to
 instead of hardcodeing names in your code 
 allows code to be more re usable and dry 
 seperate vailabel.tf file 
-input varaiables 
+input varaiables - recevess input from the user cmd or variable file 
