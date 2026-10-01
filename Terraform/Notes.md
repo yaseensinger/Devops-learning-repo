@@ -122,3 +122,6 @@ seperate vailabel.tf file
 
 input varaiables - recevess input from the user cmd or variable file 
 local variables - used to store immidate values that you assign once and use multiple times. internal to the terrerform config 
+
+## Modules
+resuablilty oragnisation  consistancy collaboration 
