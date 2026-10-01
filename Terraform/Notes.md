@@ -125,3 +125,5 @@ local variables - used to store immidate values that you assign once and use mul
 
 ## Modules
 resuablilty oragnisation  consistancy collaboration 
+modules - colleation of config files that are grouped together to server a process 
+
