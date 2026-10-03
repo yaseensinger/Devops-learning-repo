@@ -127,3 +127,29 @@ local variables - used to store immidate values that you assign once and use mul
 resuablilty oragnisation  consistancy collaboration 
 modules - colleation of config files that are grouped together to server a process 
 
+## Terraform Variables
+
+### Output Variables
+Used to display values after Terraform runs.
+Useful for things like IP addresses, DNS names, and resource IDs.
+### Variable Hierarchy
+
+From highest to lowest priority:
+
+- Command-line flags
+- .tfvars files
+- Environment variables
+- Default value
+
+## Variable Types
+
+#### Primitive Types
+String – text
+Number – numerical values
+Bool – true or false
+
+#### Complex Types
+List – ordered collection of values
+Map – key/value pairs
+Object – structured collection of different values
+
