@@ -144,12 +144,12 @@ From highest to lowest priority:
 ## Variable Types
 
 #### Primitive Types
-String – text
-Number – numerical values
-Bool – true or false
+- String – text
+- Number – numerical values
+- Bool – true or false
 
 #### Complex Types
-List – ordered collection of values
-Map – key/value pairs
-Object – structured collection of different values
+- List – ordered collection of values
+- Map – key/value pairs
+- Object – structured collection of different values
 
