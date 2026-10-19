@@ -1,9 +1,29 @@
-Ci = continious intergraion 
-allows yoou to intetgarate multiple times a day 
-can catcha and fix errors quick 
+# CI/CD
 
-cd = continious deployemt 
-every cahnge passes is auto realesed to the users 
+**CI** - Continuous Integration  
+**CD** - Continuous Deployment / Delivery
 
-cd = continious delivery 
-once iintergraatged it mekes the soft can be realsed reliabley at any time 
+## CI/CD Pipeline
+
+- Commit
+- Build trigger
+- Build
+- Notify build outcome
+- Run tests
+- Notify test outcome
+- Deliver build to staging
+- Deploy to production
+
+## Why CI/CD
+
+- Fast delivery through automation
+- Improved quality by catching bugs
+- Reduced risk
+- Better collaboration
+
+## Tools
+
+- GitLab CI/CD
+- Jenkins
+- CircleCI
+- Travis CI
