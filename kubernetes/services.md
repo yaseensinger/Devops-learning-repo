@@ -11,4 +11,29 @@ like connectors that  make sure everthing that needs to communicate to each othe
 
 # cluster ip 
 
- gives a stable internal ip that each pod can use to talk to eachother 
+- gives a stable internal ip that each pod can use to talk to eachother 
+- allows pods to talk without outside world access. (internal ip) secure 
+
+
+# Node port
+
+- makes sercvice access able outsde the cluster 
+- opens a specifc port on each node in the cluste and forwards trafttc from the port 
+
+- allows you to access the node using the node  ip and the port
+
+- usefull when you need to access a service to the outside work wihtout the neeed for a load balancer 
+- good for local development testing 
+
+
+# Load balancers 
+
+-  when you make a service with the type load balancer it it automaticallys provisions a load balancer from your cloud provider.
+
+- will distubute traffic aross your pods 
+
+- pods have their internal cluster load balancer that distubters laod in the cluster 
+
+- the external laod balancer is what users will interact with and passes traffic to the interl load balancer 
+
+- 
