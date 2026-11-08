@@ -35,5 +35,3 @@ like connectors that  make sure everthing that needs to communicate to each othe
 - pods have their internal cluster load balancer that distubters laod in the cluster 
 
 - the external laod balancer is what users will interact with and passes traffic to the interl load balancer 
-
-- 
